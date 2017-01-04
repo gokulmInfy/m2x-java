@@ -316,7 +316,7 @@ public class M2XClientTest extends M2XTestBase
 		assertThat(response.status, is(200));
 		assertThat(response.json().getJSONArray("values").length(), is(1));
 
-        //export value
+		//export value
 		response = device.exportValues(null);
 		assertThat(response.status, is(202));
 		String job = response.headers.get("Location").toString();
