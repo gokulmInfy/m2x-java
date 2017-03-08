@@ -2,6 +2,9 @@ package com.att.m2x.java;
 
 import java.io.IOException;
 
+/**
+ * The Class M2XClassWithMetadata.
+ */
 public abstract class M2XClassWithMetadata extends M2XClass
 {
 	M2XClassWithMetadata(M2XClient client)
@@ -14,9 +17,9 @@ public abstract class M2XClassWithMetadata extends M2XClass
 	 *
 	 * @return the API response
 	 * @throws java.io.IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Read-Device-Metadata">https://m2x.att.com/developer/documentation/v2/device#Read-Device-Metadata</a>
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/distribution#Read-Distribution-Metadata">https://m2x.att.com/developer/documentation/v2/distribution#Read-Distribution-Metadata</a>
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/collections#Read-Collection-Metadata">https://m2x.att.com/developer/documentation/v2/collections#Read-Collection-Metadata</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Read-Device-Metadata">Read Device Metadata</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/distribution#Read-Distribution-Metadata">Read Distribution Metadata</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/collections#Read-Collection-Metadata">Read Collection Metadata</a>
 	 */
 	public M2XResponse metadata() throws IOException { return makeGet("/metadata", null); }
 
@@ -26,9 +29,9 @@ public abstract class M2XClassWithMetadata extends M2XClass
 	 * @param jsonContent parameters for the request as JSON formatted string
 	 * @return the API response
 	 * @throws java.io.IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Update-Device-Metadata">https://m2x.att.com/developer/documentation/v2/device#Update-Device-Metadata</a>
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/distribution#Update-Distribution-Metadata">https://m2x.att.com/developer/documentation/v2/distribution#Update-Distribution-Metadata</a>
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/collections#Update-Collection-Metadata">https://m2x.att.com/developer/documentation/v2/collections#Update-Collection-Metadata</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Update-Device-Metadata">Update Device Metadata</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/distribution#Update-Distribution-Metadata">Update Distribution Metadata</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/collections#Update-Collection-Metadata">Update Collection Metadata</a>
 	 */
 	public M2XResponse updateMetadata(String jsonContent) throws IOException { return makePut("/metadata", jsonContent); }
 
@@ -38,9 +41,9 @@ public abstract class M2XClassWithMetadata extends M2XClass
 	 * @param field the name of the field in the metadata
 	 * @return the API response
 	 * @throws java.io.IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Read-Device-Metadata-Field">https://m2x.att.com/developer/documentation/v2/device#Read-Device-Metadata-Field</a>
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/distribution#Read-Distribution-Metadata-Field">https://m2x.att.com/developer/documentation/v2/distribution#Read-Distribution-Metadata-Field</a>
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/collections#Read-Collection-Metadata-Field">https://m2x.att.com/developer/documentation/v2/collections#Read-Collection-Metadata-Field</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Read-Device-Metadata-Field">Read Device Metadata Field</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/distribution#Read-Distribution-Metadata-Field">Read Distribution Metadata Field</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/collections#Read-Collection-Metadata-Field">Read Collection Metadata Field</a>
 	 */
 	public M2XResponse metadataField(String field) throws IOException { return makeGet("/metadata/" + field, null); }
 
@@ -51,9 +54,9 @@ public abstract class M2XClassWithMetadata extends M2XClass
 	 * @param jsonContent parameters for the request as JSON formatted string
 	 * @return the API response
 	 * @throws java.io.IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Update-Device-Metadata-Field">https://m2x.att.com/developer/documentation/v2/device#Update-Device-Metadata-Field</a>
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/distribution#Update-Distribution-Metadata-Field">https://m2x.att.com/developer/documentation/v2/distribution#Update-Distribution-Metadata-Field</a>
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/collections#Update-Collection-Metadata-Field">https://m2x.att.com/developer/documentation/v2/collections#Update-Collection-Metadata-Field</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Update-Device-Metadata-Field">Update-Device-Metadata-Field</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/distribution#Update-Distribution-Metadata-Field">Update-Distribution-Metadata-Field</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/collections#Update-Collection-Metadata-Field">Update-Collection-Metadata-Field</a>
 	 */
 	public M2XResponse updateMetadataField(String field, String jsonContent) throws IOException { return makePut("/metadata/" + field, jsonContent); }
 }

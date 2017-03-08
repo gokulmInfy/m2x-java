@@ -22,12 +22,20 @@ import org.json.JSONStringer;
  */
 public final class M2XClient
 {
+	
+	/** The Constant ATT M2X base endpoint. */
 	public static final String API_ENDPOINT = "https://api-m2x.att.com";
+	
+	/** The Constant ATT M2X API_VERSION. */
 	public static final String API_VERSION = "/v2";
 
+	/** The Constant USER_AGENT. */
 	static final String USER_AGENT;
 
+	/** The ATT M2X api key. */
 	public final String apiKey;
+	
+	/** The ATT M2X endpoint. */
 	public final String endpoint;
 
 	public int connectionTimeout = 30000;
@@ -47,11 +55,22 @@ public final class M2XClient
 		USER_AGENT = String.format("M2X-Java/%s java/%s (%s)", version, langVersion, osVersion);
 	}
 
+	/**
+	 * Instantiates a new M2X client.
+	 *
+	 * @param apiKey the api key
+	 */
 	public M2XClient(String apiKey)
 	{
 		this(apiKey, API_ENDPOINT);
 	}
 
+	/**
+	 * Instantiates a new M2X client.
+	 *
+	 * @param apiKey the api key
+	 * @param endpoint the endpoint
+	 */
 	public M2XClient(String apiKey, String endpoint)
 	{
 		assert endpoint != null && endpoint.length() > 0;
@@ -65,10 +84,10 @@ public final class M2XClient
 	/**
 	 * List the catalog of public Devices.
 	 *
-	 * @param query query parameters (optional)
+	 * @param query query parameters (optional).View M2X API Docs for listing of available parameters.
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#List-Public-Devices-Catalog">https://m2x.att.com/developer/documentation/v2/device#List-Public-Devices-Catalog</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#List-Public-Devices-Catalog">List Public Devices Catalog</a>
 	 */
 	public M2XResponse deviceCatalog(String query) throws IOException
 	{
@@ -78,11 +97,11 @@ public final class M2XClient
 	/**
 	 * Search the catalog of public Devices.
 	 *
-	 * @param query query parameters (optional)
-	 * @jsonContent streams, metadata, and location search parameters as JSON formatted string (optional)
+	 * @param query query parameters (optional).View M2X API Docs for listing of available parameters.
+	 * @param jsonContent streams, metadata, and location search parameters as JSON formatted string (optional)
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Search-Public-Devices-Catalog">https://m2x.att.com/developer/documentation/v2/device#Search-Public-Devices-Catalog</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Search-Public-Devices-Catalog">Search Public Devices Catalog</a>
 	 */
 	public M2XResponse deviceCatalogSearch(String query, String jsonContent) throws IOException
 	{
@@ -93,10 +112,10 @@ public final class M2XClient
 	/**
 	 * Retrieve the list of devices accessible by the authenticated API key.
 	 *
-	 * @param query query parameters (optional)
+	 * @param query query parameters (optional).View M2X API Docs for listing of available parameters.
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#List-Devices">https://m2x.att.com/developer/documentation/v2/device#List-Devices</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#List-Devices">List Devices</a>
 	 */
 	public M2XResponse devices(String query) throws IOException
 	{
@@ -106,11 +125,11 @@ public final class M2XClient
 	/**
 	 * Retrieve the list of devices accessible by the authenticated API key that meet the search criteria.
 	 *
-	 * @param query query parameters (optional)
-	 * @jsonContent streams, metadata, and location search parameters as JSON formatted string (optional)
+	 * @param query query parameters (optional).View M2X API Docs for listing of available parameters.
+	 * @param jsonContent streams, metadata, and location search parameters as JSON formatted string (optional)
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Search-Devices">https://m2x.att.com/developer/documentation/v2/device#Search-Devices</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Search-Devices">Search Devices</a>
 	 */
 	public M2XResponse searchDevices(String query, String jsonContent) throws IOException
 	{
@@ -124,7 +143,7 @@ public final class M2XClient
 	 *
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#List-Device-Tags">https://m2x.att.com/developer/documentation/v2/device#List-Device-Tags</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#List-Device-Tags">List Device Tags</a>
 	 */
 	public M2XResponse deviceTags() throws IOException
 	{
@@ -137,7 +156,7 @@ public final class M2XClient
 	 * @param jsonContent parameters for the device to be created as JSON formatted string
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Create-Device">https://m2x.att.com/developer/documentation/v2/device#Create-Device</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Create-Device">Create Device</a>
 	 */
 	public M2XResponse createDevice(String jsonContent) throws IOException
 	{
@@ -149,6 +168,7 @@ public final class M2XClient
 	 *
 	 * @param deviceId the id of the device
 	 * @return the M2X device associated with the given deviceId
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#View-Device-Details">View Device Details</a>
 	 */
 	public M2XDevice device(String deviceId)
 	{
@@ -160,6 +180,7 @@ public final class M2XClient
 	 *
 	 * @param serial the serial of the device
 	 * @return the M2X device associated with the given serial
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#View-Device-Details">View Device Details</a>
 	 */
 	public M2XDevice deviceBySerial(String serial) { return new M2XDevice(this, null, serial); }
 
@@ -170,7 +191,7 @@ public final class M2XClient
 	 *
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/distribution#List-Distributions">https://m2x.att.com/developer/documentation/v2/distribution#List-Distributions</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/distribution#List-Distributions">List Distributions</a>
 	 */
 	public M2XResponse distributions() throws IOException
 	{
@@ -183,7 +204,7 @@ public final class M2XClient
 	 * @param jsonContent parameters for the distribution to be created as JSON formatted string
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/distribution#Create-Distribution">https://m2x.att.com/developer/documentation/v2/distribution#Create-Distribution</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/distribution#Create-Distribution">Create Distribution</a>
 	 */
 	public M2XResponse createDistribution(String jsonContent) throws IOException
 	{
@@ -195,6 +216,7 @@ public final class M2XClient
 	 *
 	 * @param distributionId the id of the distribution
 	 * @return the M2X distribution associated with the given distributionId
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/distribution#View-Distribution-Details">View Distribution Details</a>
 	 */
 	public M2XDistribution distribution(String distributionId)
 	{
@@ -206,10 +228,10 @@ public final class M2XClient
 	/**
 	 * Retrieve list of keys associated with the specified account.
 	 *
-	 * @param query query parameters (optional)
+	 * @param query query parameters (optional).View M2X API Docs for listing of available parameters.
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/keys#List-Keys">https://m2x.att.com/developer/documentation/v2/keys#List-Keys</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/keys#List-Keys">List Keys</a>
 	 */
 	public M2XResponse keys(String query) throws IOException
 	{
@@ -222,7 +244,7 @@ public final class M2XClient
 	 * @param jsonContent parameters for the key to be created as JSON formatted string
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/keys#Create-Key">https://m2x.att.com/developer/documentation/v2/keys#Create-Key</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/keys#Create-Key">Create Key</a>
 	 */
 	public M2XResponse createKey(String jsonContent) throws IOException
 	{
@@ -234,6 +256,7 @@ public final class M2XClient
 	 *
 	 * @param key the API key
 	 * @return the M2X key associated with the given key
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/keys#View-Key-Details">View Key Details</a>
 	 */
 	public M2XKey key(String key)
 	{
@@ -245,10 +268,10 @@ public final class M2XClient
 	/**
 	 * Retrieve a list of collections accessible by the authenticated user.
 	 *
-	 * @param query query parameters (optional)
+	 * @param query query parameters (optional).View M2X API Docs for listing of available parameters.
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/collections#List-collections">https://m2x.att.com/developer/documentation/v2/collections#List-collections</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/collections#List-collections">List collections</a>
 	 */
 	public M2XResponse collections(String query) throws IOException
 	{
@@ -261,7 +284,7 @@ public final class M2XClient
 	 * @param jsonContent parameters for the collection to be created as JSON formatted string
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/collections#Create-Collection">https://m2x.att.com/developer/documentation/v2/collections#Create-Collection</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/collections#Create-Collection">Create Collection</a>
 	 */
 	public M2XResponse createCollection(String jsonContent) throws IOException
 	{
@@ -273,6 +296,7 @@ public final class M2XClient
 	 *
 	 * @param collectionId the id of the collection
 	 * @return the M2X collection associated with the given collectionId
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/collections#View-Collection-Details">View Collection Details</a>
 	 */
 	public M2XCollection collection(String collectionId)
 	{
@@ -284,10 +308,10 @@ public final class M2XClient
 	/**
 	 * Retrieve the list of the most recent jobs that belong to the authenticated user.
 	 *
-	 * @param query query parameters (optional)
+	 * @param query query parameters (optional).View M2X API Docs for listing of available parameters.
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/jobs#List-Jobs">https://m2x.att.com/developer/documentation/v2/jobs#List-Jobs</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/jobs#List-Jobs">List Jobs</a>
 	 */
 	public M2XResponse jobs(String query) throws IOException
 	{
@@ -300,8 +324,8 @@ public final class M2XClient
 	 * @param jobId the id of the job
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/jobs#View-Job-Details">https://m2x.att.com/developer/documentation/v2/jobs#View-Job-Details</a>
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/jobs#View-Job-Results">https://m2x.att.com/developer/documentation/v2/jobs#View-Job-Results</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/jobs#View-Job-Details">View Job Details</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/jobs#View-Job-Results">View Job Results</a>
 	 */
 	public M2XResponse jobDetails(String jobId) throws IOException
 	{
@@ -316,7 +340,7 @@ public final class M2XClient
 	 * @param format the desired time format (optional)
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/time">https://m2x.att.com/developer/documentation/v2/time</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/time">Time</a>
 	 */
 	public M2XResponse time(String format) throws IOException
 	{
@@ -331,10 +355,10 @@ public final class M2XClient
 	/**
 	 * Retrieve the list of the most recent jobs that belong to the authenticated user.
 	 *
-	 * @param query query parameters (optional)
+	 * @param query query parameters (optional).View M2X API Docs for listing of available parameters.
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/commands#List-Sent-Commands">https://m2x.att.com/developer/documentation/v2/commands#List-Sent-Commands</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/commands#List-Sent-Commands">List Sent Commands</a>
 	 */
 	public M2XResponse commands(String query) throws IOException
 	{
@@ -347,7 +371,7 @@ public final class M2XClient
 	 * @param jsonContent parameters for the command to be send as JSON formatted string
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/commands#Send-Command">https://m2x.att.com/developer/documentation/v2/commands#Send-Command</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/commands#Send-Command">Send Command</a>
 	 */
 	public M2XResponse sendCommand(String jsonContent) throws IOException
 	{
@@ -355,12 +379,12 @@ public final class M2XClient
 	}
 
 	/**
-	 * Get details of a sent command including the delivery information for all devices that were targetted by the command at the time it was sent.
+	 * Get details of a sent command including the delivery information for all devices that were targeted by the command at the time it was sent.
 	 *
 	 * @param commandId the id of the command
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/commands#View-Command-Details">https://m2x.att.com/developer/documentation/v2/commands#View-Command-Details</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/commands#View-Command-Details">View Command Details</a>
 	 */
 	public M2XResponse commandDetails(String commandId) throws IOException
 	{

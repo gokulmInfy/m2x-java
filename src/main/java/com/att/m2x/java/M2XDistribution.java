@@ -31,7 +31,7 @@ public final class M2XDistribution extends M2XClassWithMetadata
 	 *
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/distribution#List-Devices-from-an-existing-Distribution">https://m2x.att.com/developer/documentation/v2/distribution#List-Devices-from-an-existing-Distribution</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/distribution#List-Devices-from-an-existing-Distribution">List Devices from an existing Distribution</a>
 	 */
 	public M2XResponse devices() throws IOException
 	{
@@ -44,7 +44,7 @@ public final class M2XDistribution extends M2XClassWithMetadata
 	 * @param jsonContent parameters for the request as JSON formatted string
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/distribution#Add-Device-to-an-existing-Distribution">https://m2x.att.com/developer/documentation/v2/distribution#Add-Device-to-an-existing-Distribution</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/distribution#Add-Device-to-an-existing-Distribution">Add Device to an existing Distribution</a>
 	 */
 	public M2XResponse addDevice(String jsonContent) throws IOException
 	{
@@ -56,7 +56,7 @@ public final class M2XDistribution extends M2XClassWithMetadata
 	 *
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/distribution#List-Data-Streams">https://m2x.att.com/developer/documentation/v2/distribution#List-Data-Streams</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/distribution#List-Data-Streams">List Data Streams</a>
 	 */
 	public M2XResponse streams() throws IOException
 	{
@@ -68,6 +68,7 @@ public final class M2XDistribution extends M2XClassWithMetadata
 	 *
 	 * @param streamName the stream name
 	 * @return the stream for this distribution with the given stream name
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/distribution#View-Data-Stream">Distribution#View Data Stream</a>
 	 */
 	public M2XStream stream(String streamName)
 	{

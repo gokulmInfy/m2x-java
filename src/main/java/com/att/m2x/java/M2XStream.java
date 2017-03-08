@@ -41,8 +41,8 @@ public final class M2XStream extends M2XClass
 	* @param jsonContent parameters for the stream to be created/updated as JSON formatted string
 	* @return the API response
 	* @throws IOException if an input or output exception occurred
-	* @see <a href="https://m2x.att.com/developer/documentation/v2/device#Create-Update-Data-Stream">https://m2x.att.com/developer/documentation/v2/device#Create-Update-Data-Stream</a>
-	* @see <a href="https://m2x.att.com/developer/documentation/v2/distribution#Create-Update-Data-Stream">https://m2x.att.com/developer/documentation/v2/distribution#Create-Update-Data-Stream</a>
+	* @see <a href="https://m2x.att.com/developer/documentation/v2/device#Create-Update-Data-Stream">Device#Create Update Data Stream</a>
+	* @see <a href="https://m2x.att.com/developer/documentation/v2/distribution#Create-Update-Data-Stream">Distribution#Create Update Data Stream</a>
 	*/
 	public M2XResponse createOrUpdate(String jsonContent) throws IOException
 	{
@@ -55,7 +55,7 @@ public final class M2XStream extends M2XClass
 	 * @param jsonContent parameters for the stream to be updated as JSON formatted string
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Update-Data-Stream-Value">https://m2x.att.com/developer/documentation/v2/device#Update-Data-Stream-Value</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Update-Data-Stream-Value">Update Data Stream Value</a>
 	 */
 	public M2XResponse updateValue(String jsonContent) throws IOException
 	{
@@ -66,11 +66,11 @@ public final class M2XStream extends M2XClass
 	 * List values from the stream, sorted in reverse chronological order
 	 * (most recent values first).
 	 *
-	 * @param query query parameters (optional)
+	 * @param query query parameters (optional).View M2X API Docs for listing of available parameters.
 	 * @param format the desired response format (optional)
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#List-Data-Stream-Values">https://m2x.att.com/developer/documentation/v2/device#List-Data-Stream-Values</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#List-Data-Stream-Values">List Data Stream Values</a>
 	 */
 	public M2XResponse values(String query, String format) throws IOException
 	{
@@ -86,11 +86,11 @@ public final class M2XStream extends M2XClass
 	 *
 	 * This method only works for numeric streams
 	 *
-	 * @param query query parameters
+	 * @param query query parameters.View M2X API Docs for listing of available parameters.
 	 * @param format the desired response format (optional)
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Data-Stream-Sampling">https://m2x.att.com/developer/documentation/v2/device#Data-Stream-Sampling</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Data-Stream-Sampling">Data Stream Sampling</a>
 	 */
 	public M2XResponse sampling(String query, String format) throws IOException
 	{
@@ -106,10 +106,10 @@ public final class M2XStream extends M2XClass
 	 *
 	 * This method only works for numeric streams
 	 *
-	 * @param query query parameters (optional)
+	 * @param query query parameters (optional).View M2X API Docs for listing of available parameters.
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Data-Stream-Stats">https://m2x.att.com/developer/documentation/v2/device#Data-Stream-Stats</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Data-Stream-Stats">Data Stream Stats</a>
 	 */
 	public M2XResponse stats(String query) throws IOException
 	{
@@ -122,7 +122,7 @@ public final class M2XStream extends M2XClass
 	 * @param jsonContent parameters for the request as JSON formatted string
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Post-Data-Stream-Values">https://m2x.att.com/developer/documentation/v2/device#Post-Data-Stream-Values</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Post-Data-Stream-Values">Post Data Stream Values</a>
 	 */
 	public M2XResponse postValues(String jsonContent) throws IOException {
 		return makePost("/values", jsonContent);
@@ -131,10 +131,10 @@ public final class M2XStream extends M2XClass
 	/**
 	 * Delete values in a stream by a date range
 	 *
-	 * @param query query parameters
+	 * @param query query parameters.View M2X API Docs for listing of available parameters.
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Delete-Data-Stream-Values">https://m2x.com/developer/documentation/v2/device#Delete-Data-Stream-Values</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Delete-Data-Stream-Values">Delete Data Stream Values</a>
 	 */
 	public M2XResponse deleteValues(String query) throws IOException
 	{

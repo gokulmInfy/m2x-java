@@ -31,7 +31,7 @@ public final class M2XKey extends M2XClass
 	 *
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/keys#Regenerate-Key">https://m2x.att.com/developer/documentation/v2/keys#Regenerate-Key</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/keys#Regenerate-Key">Regenerate Key</a>
 	 */
 	public M2XResponse regenerate() throws IOException
 	{

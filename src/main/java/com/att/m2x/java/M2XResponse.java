@@ -46,7 +46,7 @@ public final class M2XResponse
 	/**
 	 * Returns the parsed response body.
 	 *
-	 * @return the parsed response body as JSON objecet
+	 * @return the parsed response body as JSON object
 	 */
 	public JSONObject json()
 	{

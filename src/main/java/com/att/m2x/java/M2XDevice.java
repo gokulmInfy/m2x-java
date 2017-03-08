@@ -14,6 +14,13 @@ public final class M2XDevice extends M2XClassWithMetadata
 	public final String deviceId;
 	public final String serial;
 
+	/**
+	 * Instantiates a new M2X device class.
+	 *
+	 * @param client the client
+	 * @param deviceId the device id
+	 * @param serial the serial
+	 */
 	M2XDevice(M2XClient client, String deviceId, String serial)
 	{
 		super(client);
@@ -23,6 +30,7 @@ public final class M2XDevice extends M2XClassWithMetadata
 		this.serial = serial;
 	}
 
+	
 	String buildPath(String path)
 	{
 		return (deviceId != null && deviceId.length() > 0)
@@ -35,7 +43,7 @@ public final class M2XDevice extends M2XClassWithMetadata
 	 *
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Read-Device-Location"></a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Read-Device-Location">Read Device Location endpoint</a>
 	 */
 	public M2XResponse location() throws IOException
 	{
@@ -45,9 +53,10 @@ public final class M2XDevice extends M2XClassWithMetadata
 	/**
 	 * Read Device Location History.
 	 *
+	 * @param query the query.View M2X API Docs for listing of available parameters.
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Read-Device-Location-History"></a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Read-Device-Location-History">Read Device Location History endpoint</a>
 	 */
 	public M2XResponse locationHistory(String query) throws IOException
 	{
@@ -56,11 +65,11 @@ public final class M2XDevice extends M2XClassWithMetadata
 
 	/**
 	 * Update the current location of the specified device.
-	 *
+	 * 
 	 * @param jsonContent parameters for the device to be updated as JSON formatted string
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Update-Device-Location">https://m2x.att.com/developer/documentation/v2/device#Read-Device-Location</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Update-Device-Location">Update Device Location endpoint</a>
 	 */
 	public M2XResponse updateLocation(String jsonContent) throws IOException
 	{
@@ -70,10 +79,10 @@ public final class M2XDevice extends M2XClassWithMetadata
 	/**
 	 * Retrieve list of data streams associated with the device.
 	 *
-	 * @param query query parameters (optional)
+	 * @param query query parameters (optional).View M2X API Docs for listing of available parameters.
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#List-Data-Streams">https://m2x.att.com/developer/documentation/v2/device#List-Data-Streams</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#List-Data-Streams">List Data Streams endpoint</a>
 	 */
 	public M2XResponse streams(String query) throws IOException
 	{
@@ -85,6 +94,8 @@ public final class M2XDevice extends M2XClassWithMetadata
 	 *
 	 * @param streamName the name of the stream
 	 * @return the stream for this device with the given stream name
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#View-Data-Stream">Device#View Data Stream</a>
+	 * 
 	 */
 	public M2XStream stream(String streamName)
 	{
@@ -95,11 +106,11 @@ public final class M2XDevice extends M2XClassWithMetadata
 	 * List values from all data streams associated with a specific device, sorted in reverse chronological order
 	 * (most recent values first).
 	 *
-	 * @param query query parameters (optional)
+	 * @param query query parameters (optional).View M2X API Docs for listing of available parameters.
 	 * @param format the desired response format (optional)
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#List-Values-from-all-Data-Streams-of-a-Device">https://m2x.att.com/developer/documentation/v2/device#List-Values-from-all-Data-Streams-of-a-Device</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#List-Values-from-all-Data-Streams-of-a-Device">List Values from all Data Streams of a Device</a>
 	 */
 	public M2XResponse values(String query, String format) throws IOException
 	{
@@ -116,7 +127,7 @@ public final class M2XDevice extends M2XClassWithMetadata
 	 * @param format the desired response format (optional)
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Search-Values-from-all-Data-Streams-of-a-Device">https://m2x.att.com/developer/documentation/v2/device#Search-Values-from-all-Data-Streams-of-a-Device</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Search-Values-from-all-Data-Streams-of-a-Device">Search Values from all Data Streams of a Device</a>
 	 */
 	public M2XResponse searchValues(String jsonContent, String format) throws IOException
 	{
@@ -130,10 +141,10 @@ public final class M2XDevice extends M2XClassWithMetadata
 	 * Export all values from all or selected data streams associated with a specific device, sorted in reverse chronological order
 	 * (most recent values first).
 	 *
-	 * @param query query parameters (optional)
+	 * @param query query parameters (optional).View M2X API Docs for listing of available parameters.
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Export-Values-from-all-Data-Streams-of-a-Device">https://m2x.att.com/developer/documentation/v2/device#Export-Values-from-all-Data-Streams-of-a-Device</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Export-Values-from-all-Data-Streams-of-a-Device">Export Values from all Data Streams of a Device</a>
 	 */
 	public M2XResponse exportValues(String query) throws IOException
 	{
@@ -146,7 +157,7 @@ public final class M2XDevice extends M2XClassWithMetadata
 	 * @param jsonContent parameters for the request as JSON formatted string
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Post-Device-Update--Single-Values-to-Multiple-Streams-">https://m2x.att.com/developer/documentation/v2/device#Post-Device-Update--Single-Values-to-Multiple-Streams-</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Post-Device-Update--Single-Values-to-Multiple-Streams-">Post Device Update--Single-Values-to-Multiple-Streams</a>
 	 */
 	public M2XResponse postUpdate(String jsonContent) throws IOException
 	{
@@ -159,7 +170,7 @@ public final class M2XDevice extends M2XClassWithMetadata
 	 * @param jsonContent parameters for the request as JSON formatted string
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Post-Device-Updates--Multiple-Values-to-Multiple-Streams-">https://m2x.att.com/developer/documentation/v2/device#Post-Device-Updates--Multiple-Values-to-Multiple-Streams-</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#Post-Device-Updates--Multiple-Values-to-Multiple-Streams-">Post Device Updates--Multiple-Values-to-Multiple-Streams-</a>
 	 */
 	public M2XResponse postUpdates(String jsonContent) throws IOException
 	{
@@ -169,10 +180,10 @@ public final class M2XDevice extends M2XClassWithMetadata
 	/**
 	 * Retrieve list of HTTP requests received lately by the specified device (up to 100 entries).
 	 *
-	 * @param query query parameters (optional)
+	 * @param query query parameters (optional).View M2X API Docs for listing of available parameters.
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#View-Request-Log">https://m2x.att.com/developer/documentation/v2/device#View-Request-Log</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/device#View-Request-Log">View Request Log</a>
 	 */
 	public M2XResponse log(String query) throws IOException
 	{
@@ -182,10 +193,10 @@ public final class M2XDevice extends M2XClassWithMetadata
 	/**
 	 * Retrieve the list of recent commands sent to the current device (as given by the API key).
 	 *
-	 * @param query query parameters (optional)
+	 * @param query query parameters (optional).View M2X API Docs for listing of available parameters.
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/commands#Device-s-List-of-Received-Commands">https://m2x.att.com/developer/documentation/v2/commands#Device-s-List-of-Received-Commands</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/commands#Device-s-List-of-Received-Commands">Device's List of Received Commands</a>
 	 */
 	public M2XResponse commands(String query) throws IOException
 	{
@@ -198,7 +209,7 @@ public final class M2XDevice extends M2XClassWithMetadata
 	 * @param commandId the id of the command
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/commands#Device-s-View-of-Command-Details">https://m2x.att.com/developer/documentation/v2/commands#Device-s-View-of-Command-Details</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/commands#Device-s-View-of-Command-Details">Device's View of Command Details</a>
 	 */
 	public M2XResponse commandDetails(String commandId) throws IOException
 	{
@@ -212,7 +223,7 @@ public final class M2XDevice extends M2XClassWithMetadata
 	 * @param jsonContent optional response data as JSON formatted string
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/commands#Device-Marks-a-Command-as-Processed">https://m2x.att.com/developer/documentation/v2/commands#Device-Marks-a-Command-as-Processed</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/commands#Device-Marks-a-Command-as-Processed">Device Marks a Command as Processed</a>
 	 */
 	public M2XResponse processCommand(String commandId, String jsonContent) throws IOException
 	{
@@ -226,7 +237,7 @@ public final class M2XDevice extends M2XClassWithMetadata
 	 * @param jsonContent optional response data as JSON formatted string
 	 * @return the API response
 	 * @throws IOException if an input or output exception occurred
-	 * @see <a href="https://m2x.att.com/developer/documentation/v2/commands#Device-Marks-a-Command-as-Rejected">https://m2x.att.com/developer/documentation/v2/commands#Device-Marks-a-Command-as-Rejected</a>
+	 * @see <a href="https://m2x.att.com/developer/documentation/v2/commands#Device-Marks-a-Command-as-Rejected">Device Marks a Command as Rejected</a>
 	 */
 	public M2XResponse rejectCommand(String commandId, String jsonContent) throws IOException
 	{
